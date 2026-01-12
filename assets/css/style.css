@@ -1,0 +1,177 @@
+@import url('reset.css');
+
+body {
+  display: grid;
+  min-height: 100vh;
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 200px);
+
+  grid-template-areas:
+    "header header"
+    "aside  main"
+    ".      .";
+}
+
+
+p {
+    color: #515151;
+}
+
+
+h1 {
+    color: black;
+    font-size: 20px; 
+    font-weight: 600;
+    line-height: 100%;
+}
+
+h3 {
+    color: black;
+    font-size: 14px; 
+    font-weight: 600;
+    line-height: 100%;
+}
+
+
+section {
+    margin: 100px auto; /*margem superior e inferior de 100px e auto (navegador calcula automaticamente as margens) para as laterais*/
+}
+
+
+/* ===================================================== HEADER - INÍCIO ===================================================== */
+
+.app-header {
+  grid-area: header; /* Define a área do grid para o cabeçalho */
+
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* três colunas: início (auto: largura calculada automaticamente e fica do tamanho do conteúdo), centro (1fr) e fim (auto)*/
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+
+  height: 64px;
+  padding: 0 16px; /*superior e inferior zero, laterais 16px*/
+
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5; /* linha de separação na parte inferior */
+}
+
+.app-header__section,
+.app-header__menu-toggle,
+.app-header__action {
+  display: grid;
+  place-items: center; /* Centraliza os itens tanto horizontalmente quanto verticalmente */
+}
+
+
+.app-header__menu-toggle,
+.app-header__action {
+  width: 40px;
+  height: 40px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  font-size: 18px; /* Tamanho do ícone */
+}
+
+
+/* SECTIONS */
+
+.app-header__section {
+  grid-auto-flow: column; /* Itens dispostos em colunas */
+  gap: 16px;
+}
+
+.app-header__section--start {
+  justify-content: start; /*Alinha o conteúdo de "app-header__section--start" ao início (esquerda)*/
+}
+
+.app-header__section--center {
+  justify-content: center; /*Alinha o conteúdo de "app-header__section--center" ao centro*/
+}
+
+.app-header__section--end {
+  justify-content: end; /*Alinha o conteúdo de "app-header__section--end" ao final (direita)*/
+}
+
+
+/* LOGO  */
+
+.app-header__logo img { /*seleciona a imagem dentro do app-header__logo*/
+  height: 24px;
+  cursor: pointer;
+}
+
+/* SEARCH  */
+
+.app-header__search {
+  display: grid;
+  grid-template-columns: 1fr auto; /* Duas colunas: uma que ocupa o espaço disponível (1fr) e outra com largura automática (auto) */
+
+  width: 600px; /* Largura fixa de 600px */
+  max-width: 100%; /* Garante que a largura máxima não ultrapasse 100% do contêiner pai (app-header__section--center)*/
+  height: 40px;
+
+  border: 1px solid #ccc; /* 1px é a espessura da borda, solid é o estilo da borda e #ccc é a cor da borda */
+  border-radius: 20px; /* Bordas arredondadas com raio de 20px */
+  overflow: hidden; /* Garante que o conteúdo que ultrapassa os limites do contêiner seja cortado */
+}
+
+.app-header__search input { /*seleciona input do app-header__search*/
+  border: none;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.app-header__search button { /*seleciona o botão dentro do app-header__search*/
+  width: 64px;
+  border: none;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+/* AVATAR */
+
+
+.app-header__action--avatar img { /*seleciona a imagem dentro do app-header__action--avatar*/
+  width: 32px;
+  height: 32px;
+  border-radius: 50%; /* Torna a imagem circular */
+}
+
+
+/* ===================================================== HEADER - FIM ===================================================== */
+
+
+/* ===================================================== ASIDE - INÍCIO ===================================================== */
+
+
+
+
+
+
+
+
+
+
+
+/* ===================================================== ASIDE - FIM ===================================================== */
+
+
+
+/* ===================================================== MAIN - INÍCIO ===================================================== */
+
+
+
+
+
+/* ===================================================== MAIN - FIM ===================================================== */
+
+
+
+
+
+
+
+
+
