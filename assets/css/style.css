@@ -2,15 +2,14 @@
 
 body {
   display: grid;
-  min-height: 100vh;
+  min-height: 100vh; /* altura mínima de 100% da viewport (tela do usuário) */
 
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 200px);
+  grid-template-columns: 240px 1fr; /* duas colunas: a primeira com largura fixa de 240px e a segunda que ocupa o espaço restante (1fr) */
+  grid-template-rows: auto 1fr; /* duas linhas: a primeira com altura automática (auto) e a segunda que ocupa o espaço restante (1fr) */
 
   grid-template-areas:
     "header header"
-    "aside  main"
-    ".      .";
+    "aside main";
 }
 
 
@@ -145,28 +144,146 @@ section {
 
 /* ===================================================== ASIDE - INÍCIO ===================================================== */
 
+.sidebar {
+  grid-area: aside;
+
+  width: 240px;
+  padding: 12px 0; /* espaçamento interno superior e inferior de 12px e laterais zero*/
+
+  background-color: #ffffff; /* cor de fundo branca */
+  border-right: 1px solid #e5e5e5; /* linha de separação na parte direita */
+}
+
+/* NAV */
+
+.sidebar__nav {
+  width: 100%; /* ocupa toda a largura do contêiner pai (sidebar) */
+}
+
+/* LIST */
+
+.sidebar__list {
+  display: grid; /*Uma coluna com largura mínima para cada item e uma linha para cada item filho*/
+  grid-auto-rows: min-content; /* cada linha terá altura mínima necessária para conter seu conteúdo */
+
+  padding: 0; /* remove o padding padrão da lista */
+  margin: 0; /* remove a margem padrão da lista */
+
+  list-style: none; /* remove os marcadores padrão da lista */
+}
+
+/* ITEM */
+
+.sidebar__item {
+  width: 100%; /* ocupa toda a largura do contêiner pai (sidebar__list) */
+}
+
+/* LINK (elemento clicável real) */
+
+.sidebar__link {
+  display: grid;
+  grid-template-columns: 24px 1fr; /* duas colunas: a primeira com largura fixa de 24px (para o ícone SVG) e a segunda que ocupa o espaço restante (1fr) */
+  align-items: center; /* alinha os itens verticalmente ao centro */
+  gap: 16px; /* espaçamento de 16px entre as colunas */
+
+  padding: 10px 24px; /* espaçamento interno superior e inferior de 10px e laterais de 24px */
+
+  color: #030303;
+  text-decoration: none; /* remove o sublinhado padrão dos links */
+  font-size: 14px;
+  font-weight: 500; /* peso da fonte */
+
+  border-radius: 10px; /* bordas arredondadas com raio de 10px */
+  cursor: pointer;
+}
+
+/* SVG + TEXTO */
+
+.sidebar__link svg {
+  flex-shrink: 0; /* impede que o ícone SVG encolha além do seu tamanho original */
+}
+
+.sidebar__link span {
+  white-space: nowrap; /* impede que o texto quebre em várias linhas */
+}
 
 
-
-
-
-
-
-
+.sidebar__link:hover {
+  background-color: #f2f2f2;
+}
 
 
 /* ===================================================== ASIDE - FIM ===================================================== */
 
 
 
+
 /* ===================================================== MAIN - INÍCIO ===================================================== */
 
+.content {
+  padding: 24px; /* espaçamento interno de 24px em todos os lados */
+  background-color: #ffffff;
+}
 
+/* GRID DE VÍDEOS */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* cria colunas que se ajustam automaticamente ao tamanho da tela, com largura mínima de 260px e máxima de 1fr (espaço disponível) */
+  gap: 30px; /* espaçamento de 24px entre os itens do grid */
+  margin: 0 auto; /*Superior e inferior com zero e laterais definido automaticamente (centraliza o grid horizontalmente) */
+}
 
+/* CARD DO VÍDEO */
+.video-card {
+  display: flex; /* usa flexbox para organizar o conteúdo do card */
+  flex-direction: column; /* organiza os itens em uma coluna */
+  cursor: pointer;
+}
 
+/* THUMBNAIL */
+.video-card__thumbnail {
+  width: 100%;
+  object-fit: cover; /* garante que a imagem cubra todo o espaço disponível sem distorcer */
+  border-radius: 12px; /* bordas arredondadas com raio de 12px */
+  margin-bottom: 12px; /* espaçamento inferior de 12px */
+}
 
-/* ===================================================== MAIN - FIM ===================================================== */
+/* INFO ABAIXO DO THUMBNAIL */
+.video-card__info {
+  display: flex; /* usa flexbox para organizar o conteúdo */
+  gap: 12px;
+}
 
+/* AVATAR */
+.video-card__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%; /* torna a imagem circular */
+  flex-shrink: 0; /* impede que o avatar encolha além do seu tamanho original */
+}
+
+/* META */
+.video-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* TÍTULO */
+.video-card__title {
+  font-size: 14px;
+  font-weight: 600; 
+  overflow: hidden; /* esconde o excesso de texto */
+}
+
+/* VIEWS + TEMPO */
+.video-card__views,
+.video-card__time {
+  font-size: 12px; /* tamanho da fonte menor */
+  color: #606060;
+}
+
+/* ===================================================== MAIN - INÍCIO ===================================================== */
 
 
 
